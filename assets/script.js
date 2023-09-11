@@ -22,7 +22,27 @@ function generatePassword() {
         window.alert("You must select at least one charater type.")
       }
     } 
-
+  //collect user choices and add them to the empty array
+  if (lowerCase){
+    selectedArray = selectedArray.concat(lowerCaseSet);
+  }
+  if (upperCase){
+    selectedArray = selectedArray.concat(upperCaseSet);
+  }
+  if (numCharacters) {
+  selectedArray = selectedArray.concat(numSet);
+  }
+if (spCharacters){
+  selectedArray = selectedArray.concat(specialCharSet);
+  }
+var passwordString = "";
+// this loop will use the created array to randomly select charaters from it, and put them into a new string
+// tutoring: I want a better understanding of this i variable. 
+for (var i = 0; i < passwordLength; i++) {
+  passwordString += selectedArray[Math.floor(Math.random() * (selectedArray.length))];
+}
+return passwordString;
+}
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
