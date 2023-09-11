@@ -43,6 +43,32 @@ for (var i = 0; i < passwordLength; i++) {
 }
 return passwordString;
 }
+function getPasswordLength() {
+  var userChoice = 0;
+  while ((userChoice < 8) || (userChoice > 128)) {
+    userChoice = parseInt(window.prompt("Enter the number of charaters between 8 and 128"));
+    // verifies that user entered a number not a letter
+    if (isNaN(userChoice)) {
+      // reset the user choice loop if they entered anything but a number
+      userChoice = 0;
+    }
+  }
+  return userChoice;
+}
+function getChoice(currentOption) {
+    var userChoice = "a",
+      messagePrompt = "";
+    var messagePrompt = ("would you like " .concat(currentOption))
+    messagePrompt = messagePrompt.concat(" characters (y/n)?")
+    while (userChoice = "a") {
+      userChoice = (window.prompt(messagePrompt));
+      if (userChoice === "y") {
+        return true;
+      } else if (userChoice == "n"){
+        return false;
+      }
+      }
+}
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
